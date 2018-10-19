@@ -10,32 +10,54 @@ namespace Apk
 {
     class AESProgram
     {
-        public static void DoAES(string source)
+        public static void DoAESEnc(string source, string keySource, string IVSource)
         {
-            //algorytm aes-a
             try
             {
+                string original = source;
+                string text;
+                // Create a new instance of the Aes
+                // class.  This generates a new key and initialization 
+                // vector (IV).
+                
+                using (Aes myAes = Aes.Create())
+                {
+                    // Encrypt the string to an array of bytes.
+                    myAes.Key = Convert.FromBase64String(keySource);
+                    myAes.IV = Convert.FromBase64String(IVSource);
+                    byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
+                    text = Encoding.Unicode.GetString(encrypted);
+                    
+                }
+                System.IO.File.WriteAllText(@"AESTextEnc.txt", text);
 
-                string original = source;//"Here is some data to encrypt!";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+        }
+
+        public static void DoAESDec(string source, string keySource, string IVSource)
+        {
+            try
+            {
+                string original = source;
                 string roundtrip;
                 // Create a new instance of the Aes
                 // class.  This generates a new key and initialization 
                 // vector (IV).
+
                 using (Aes myAes = Aes.Create())
                 {
                     // Encrypt the string to an array of bytes.
-                    byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
-                    
-                    // encrypted = br.ReadBytes(from_code.Length);
+                    myAes.Key = Convert.FromBase64String(keySource);
+                    myAes.IV = Convert.FromBase64String(IVSource);
+                    byte[] encrypted = Encoding.Unicode.GetBytes(original);
                     roundtrip = DecryptStringFromBytes_Aes(encrypted, myAes.Key, myAes.IV);
 
-                    //Display the original data and the decrypted data.
-                    //Console.WriteLine("Original:   {0}", original);
-                    //Console.WriteLine("Round Trip: {0}", roundtrip);
-                    
                 }
-                string text = $"Original: {original}\r\nRound Trip: {roundtrip}";
-                System.IO.File.WriteAllText(@"AESText.txt", text);
+                System.IO.File.WriteAllText(@"AESTextDec.txt", roundtrip);
 
             }
             catch (Exception e)
@@ -53,14 +75,15 @@ namespace Apk
             if (IV == null || IV.Length <= 0)
                 throw new ArgumentNullException("IV");
             byte[] encrypted;
-
+            
             // Create an Aes object
             // with the specified key and IV.
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = Key;
                 aesAlg.IV = IV;
-
+                System.IO.File.WriteAllText(@"Key.txt", Convert.ToBase64String(Key));
+                System.IO.File.WriteAllText(@"IV.txt", Convert.ToBase64String(IV));
                 // Create an encryptor to perform the stream transform.
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
