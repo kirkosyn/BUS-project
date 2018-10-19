@@ -17,6 +17,8 @@ using System.Windows.Shapes;
 
 using DialogResult = System.Windows.Forms.DialogResult;
 using Apk;
+using System.Numerics;
+
 using System.Security.Cryptography;
 
 namespace WpfApp2
@@ -122,5 +124,32 @@ namespace WpfApp2
                 return null;
         }
 
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            numbers.add();
+            MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
+
+
+        }
+
+        private void Button_Multiply(object sender, RoutedEventArgs e)
+        {
+            numbers.multiply();
+            MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
+
+        }
+
+        private void Button_Mod(object sender, RoutedEventArgs e)
+        {
+            numbers.mod();
+            MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
+
+        }
+        private void Button_Minus(object sender, RoutedEventArgs e)
+        {
+            numbers.minus();
+            MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
+
+        }
     }
 }

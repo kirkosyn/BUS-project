@@ -6,22 +6,27 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="MainWindow" Height="296.855" Width="399.382">
-    <Grid Margin="0,0,0,0.333" HorizontalAlignment="Left" Width="397">
+    <Grid Margin="0,-24,-6.2,0.2" HorizontalAlignment="Left" Width="399">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="386*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button1" Content="Wybierz plik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,35,0,0" Click="button1_Click" Height="20"/>
-        <Button x:Name="button2" Content="Zaszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,92,0,0" Click="button2_Click" Height="19"/>
-        <Button x:Name="button3" Content="Zahaszuj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,207,0,0" Click="button3_Click" Height="20"/>
-        <Button x:Name="button4" Content="Odszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,149,0,0" Click="button4_Click" Height="20"/>
-        <Button x:Name="button5" Content="Wybierz klucz do odszyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,149,0,0" Click="button5_Click" Height="21"/>
-        <Button x:Name="button6" Content="Wybierz klucz do szyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,91,0,0" Click="button6_Click" Height="20"/>
-        <Button x:Name="button7" Content="Wybierz IV do szyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,116,0,0" Click="button7_Click"/>
-        <Button x:Name="button8" Content="Wybierz IV do odszyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,175,0,0" Click="button8_Click"/>
+        <Button x:Name="button1" Content="Wybierz plik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="4.2,35,0,0" Click="button1_Click" Height="20" Grid.Column="1"/>
+        <Button x:Name="button2" Content="Zaszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="4.2,119,0,0" Click="button2_Click" Height="19" Grid.Column="1"/>
+        <Button x:Name="button3" Content="Zahaszuj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="4.2,197,0,0" Click="button3_Click" Height="20" Grid.Column="1"/>
+        <Button x:Name="button4" Content="Odszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="4.2,149,0,0" Click="button4_Click" Height="20" Grid.Column="1"/>
+        <Button x:Name="button5" Content="Wybierz klucz do odszyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="106.2,134,0,0" Click="button5_Click" Height="21" Grid.Column="1"/>
+        <Button x:Name="button6" Content="Wybierz klucz do szyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="106.2,54,0,0" Click="button6_Click" Height="20" Grid.Column="1"/>
+        <Button x:Name="button7" Content="Wybierz IV do szyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="106.2,92,0,0" Click="button7_Click" Grid.Column="1" Height="19"/>
+        <Button x:Name="button8" Content="Wybierz IV do odszyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="106.2,175,0,0" Click="button8_Click" Grid.Column="1" Height="19"/>
+        <Button Content="dodawanie" Grid.Column="1" HorizontalAlignment="Left" Margin="4.2,241,0,0" VerticalAlignment="Top" Width="75" Click="Button_Add"/>
+        <Button Content="odejmowanie" Grid.Column="1" HorizontalAlignment="Left" Margin="84.2,241,0,0" VerticalAlignment="Top" Width="75" Click="Button_Minus"/> 
+        <Button Content="mnozenie" Grid.Column="1" HorizontalAlignment="Left" Margin="182.2,241,0,0" VerticalAlignment="Top" Width="75" Click="Button_Multiply"/>
+        <Button Content="modulo" Grid.Column="1" HorizontalAlignment="Left" Margin="288.2,241,0,0" VerticalAlignment="Top" Width="75" Click="Button_Mod"/>
 
     </Grid>
 </Window>
