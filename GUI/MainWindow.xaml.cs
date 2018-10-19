@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 
 using DialogResult = System.Windows.Forms.DialogResult;
 using Apk;
+using System.Security.Cryptography;
 
 namespace WpfApp2
 {
@@ -27,7 +28,16 @@ namespace WpfApp2
     {
         string fileContent = string.Empty;
         string filePath = string.Empty;
-        string fileKeyPath = string.Empty;
+
+        string fileKeyEncContent = string.Empty;
+        string fileKeyDecContent = string.Empty;
+        string fileKeyPathEnc = string.Empty;
+        string fileKeyPathDec = string.Empty;
+
+        string fileIVPathEnc = string.Empty;
+        string fileIVPathDec = string.Empty;
+        string fileIVEncContent = string.Empty;
+        string fileIVDecContent = string.Empty;
 
         public MainWindow()
         {
@@ -36,13 +46,13 @@ namespace WpfApp2
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            chooseFile(filePath);
+            fileContent = chooseFile(filePath);
         }
 
         //szyfrowanie
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            AESProgram.DoAES(fileContent);
+            AESProgram.DoAESEnc(fileContent, fileKeyEncContent, fileIVEncContent);
             MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
         }
 
@@ -56,32 +66,45 @@ namespace WpfApp2
         //odszyfrowanie
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-
+            AESProgram.DoAESDec(fileContent, fileKeyDecContent, fileIVDecContent);
+            MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
         }
 
         //wybranie klucza do zaszyfrowania
         private void button6_Click(object sender, RoutedEventArgs e)
         {
-            chooseFile(fileKeyPath);
+            fileKeyEncContent = chooseFile(fileKeyPathEnc);
         }
 
         //wybranie klucza do odszyfrowania
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            chooseFile(fileKeyPath);
+            fileKeyDecContent = chooseFile(fileKeyPathDec);
+        }
+        
+        //wybranie IV do szyfrowania
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+            fileIVEncContent = chooseFile(fileIVPathEnc);
         }
 
-        private void chooseFile(string path)
+        //wybranie IV do odszyfrowania
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            fileIVDecContent = chooseFile(fileIVPathEnc);
+        }
+        private string chooseFile(string path)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.InitialDirectory = "c:\\users\\kokos\\source\\repos";
             openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
 
             var result = openFileDialog.ShowDialog();
             var fileStream = openFileDialog.OpenFile();
+            string content;
 
             if (result == true)
             {
@@ -89,11 +112,15 @@ namespace WpfApp2
 
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
-                    fileContent = reader.ReadToEnd();
+                    content = reader.ReadToEnd();
                 }
 
                 MessageBox.Show(path, "File path", MessageBoxButton.OK);
+                return content;
             }
+            else
+                return null;
         }
+
     }
 }
