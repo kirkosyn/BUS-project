@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using DialogResult = System.Windows.Forms.DialogResult;
+using Apk;
 
 namespace WpfApp2
 {
@@ -47,7 +48,8 @@ namespace WpfApp2
         //hashowanie
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-
+            HashProgram.DoHash(fileContent);
+            MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
         }
 
         //odszyfrowanie
@@ -78,19 +80,19 @@ namespace WpfApp2
             openFileDialog.RestoreDirectory = true;
 
             var result = openFileDialog.ShowDialog();
+            var fileStream = openFileDialog.OpenFile();
+
             if (result == true)
             {
                 path = openFileDialog.FileName;
+
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    fileContent = reader.ReadToEnd();
+                }
+
                 MessageBox.Show(path, "File path", MessageBoxButton.OK);
             }
         }
     }
 }
-
-//Read the contents of the file into a stream
-//var fileStream = openFileDialog.OpenFile();
-
-/*using (StreamReader reader = new StreamReader(fileStream))
-{
-    fileContent = reader.ReadToEnd();
-}*/
