@@ -14,7 +14,12 @@ namespace bus_lab1_test
     {
         public static void Main()
         {
-            AES.aes("dana.txt");
+            // AES.aes("dana.txt");
+            // numbers.add();
+            // numbers.multiply();
+            //numbers.minus();
+            numbers.mod();
+
         }
     }
 }

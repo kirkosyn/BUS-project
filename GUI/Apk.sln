@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apk", "Apk.csproj", "{746C4691-B248-4E04-A7C6-FD6DA364FADE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bus_lab1_test", "..\bus_lab1_test\bus_lab1_test.csproj", "{3737E860-730F-48A4-A0A2-9314BB12E80A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{746C4691-B248-4E04-A7C6-FD6DA364FADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{746C4691-B248-4E04-A7C6-FD6DA364FADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{746C4691-B248-4E04-A7C6-FD6DA364FADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3737E860-730F-48A4-A0A2-9314BB12E80A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3737E860-730F-48A4-A0A2-9314BB12E80A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3737E860-730F-48A4-A0A2-9314BB12E80A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3737E860-730F-48A4-A0A2-9314BB12E80A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
