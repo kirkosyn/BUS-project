@@ -20,6 +20,8 @@
         <Button x:Name="button4" Content="Odszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,149,0,0" Click="button4_Click" Height="20"/>
         <Button x:Name="button5" Content="Wybierz klucz do odszyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,149,0,0" Click="button5_Click" Height="21"/>
         <Button x:Name="button6" Content="Wybierz klucz do szyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,91,0,0" Click="button6_Click" Height="20"/>
+        <Button x:Name="button7" Content="Wybierz IV do szyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,116,0,0" Click="button7_Click"/>
+        <Button x:Name="button8" Content="Wybierz IV do odszyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,175,0,0" Click="button8_Click"/>
 
     </Grid>
 </Window>
