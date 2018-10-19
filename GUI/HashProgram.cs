@@ -12,7 +12,7 @@ namespace Apk
     {
         public static void DoHash(string source)
         {
-            source = "Hello World!";
+            
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 string hash = GetHash(sha256Hash, source);
@@ -54,7 +54,7 @@ namespace Apk
             return sBuilder.ToString();
         }
 
-        // Verify a hash against a string.
+        /*// Verify a hash against a string.
         private static bool VerifyHash(HashAlgorithm hashAlgorithm, string input, string hash)
         {
             // Hash the input.
@@ -64,7 +64,7 @@ namespace Apk
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
             return comparer.Compare(hashOfInput, hash) == 0;
-        }
+        }*/
 
     }
 }
