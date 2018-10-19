@@ -42,7 +42,8 @@ namespace WpfApp2
         //szyfrowanie
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            AESProgram.DoAES(fileContent);
+            MessageBox.Show("Zrobione!", "Stan", MessageBoxButton.OK);
         }
 
         //hashowanie
