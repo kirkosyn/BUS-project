@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="296.855" Width="399.382">
+    <Grid Margin="0,0,0,0.333" HorizontalAlignment="Left" Width="397">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="button1" Content="Wybierz plik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,35,0,0" Click="button1_Click" Height="20"/>
+        <Button x:Name="button2" Content="Zaszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,92,0,0" Click="button2_Click" Height="19"/>
+        <Button x:Name="button3" Content="Zahaszuj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,207,0,0" Click="button3_Click" Height="20"/>
+        <Button x:Name="button4" Content="Odszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,149,0,0" Click="button4_Click" Height="20"/>
+        <Button x:Name="button5" Content="Wybierz klucz do odszyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,149,0,0" Click="button5_Click" Height="21"/>
+        <Button x:Name="button6" Content="Wybierz klucz do szyfrowania" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="166,91,0,0" Click="button6_Click" Height="20"/>
+
+    </Grid>
+</Window>
