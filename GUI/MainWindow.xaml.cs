@@ -26,6 +26,7 @@ namespace WpfApp2
     {
         string fileContent = string.Empty;
         string filePath = string.Empty;
+        string fileKeyPath = string.Empty;
 
         public MainWindow()
         {
@@ -34,32 +35,7 @@ namespace WpfApp2
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
-
-            var result = openFileDialog.ShowDialog();
-            if (result == true)
-                {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
-
-                /*using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    fileContent = reader.ReadToEnd();
-                }*/
-
-                MessageBox.Show(filePath, "File Content at path", MessageBoxButton.OK);
-                }
-
+            chooseFile(filePath);
         }
 
         //szyfrowanie
@@ -83,13 +59,38 @@ namespace WpfApp2
         //wybranie klucza do zaszyfrowania
         private void button6_Click(object sender, RoutedEventArgs e)
         {
-
+            chooseFile(fileKeyPath);
         }
 
         //wybranie klucza do odszyfrowania
         private void button5_Click(object sender, RoutedEventArgs e)
         {
+            chooseFile(fileKeyPath);
+        }
 
+        private void chooseFile(string path)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            var result = openFileDialog.ShowDialog();
+            if (result == true)
+            {
+                path = openFileDialog.FileName;
+                MessageBox.Show(path, "File path", MessageBoxButton.OK);
+            }
         }
     }
 }
+
+//Read the contents of the file into a stream
+//var fileStream = openFileDialog.OpenFile();
+
+/*using (StreamReader reader = new StreamReader(fileStream))
+{
+    fileContent = reader.ReadToEnd();
+}*/
